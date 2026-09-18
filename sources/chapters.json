@@ -1,0 +1,110 @@
+[
+  {
+    "number": 1,
+    "file": "chapters/01-ai-service.md",
+    "title": "01｜一個 AI 服務，為什麼需要這麼多基礎設施？",
+    "part": "第一篇 · 建立全景"
+  },
+  {
+    "number": 2,
+    "file": "chapters/02-open-source-governance.md",
+    "title": "02｜程式碼公開以後，究竟是誰在管？",
+    "part": "第一篇 · 建立全景"
+  },
+  {
+    "number": 3,
+    "file": "chapters/03-why-companies-invest.md",
+    "title": "03｜人人都能用，企業為什麼還要付錢維護？",
+    "part": "第一篇 · 建立全景"
+  },
+  {
+    "number": 4,
+    "file": "chapters/04-taione-intent.md",
+    "title": "04｜TAIONE 希望台灣的角色發生什麼改變？",
+    "part": "第一篇 · 建立全景"
+  },
+  {
+    "number": 5,
+    "file": "chapters/05-track-landscape.md",
+    "title": "05｜這 11 個 Track 在同一張地圖的哪裡？",
+    "part": "第一篇 · 建立全景"
+  },
+  {
+    "number": 6,
+    "file": "chapters/06-vllm.md",
+    "title": "06｜vLLM：模型已經會回答，為什麼還需要推論引擎？",
+    "part": "第二篇 · 模型與分散運算"
+  },
+  {
+    "number": 7,
+    "file": "chapters/07-ray.md",
+    "title": "07｜Ray：一台電腦不夠時，程式如何交給很多台一起做？",
+    "part": "第二篇 · 模型與分散運算"
+  },
+  {
+    "number": 8,
+    "file": "chapters/08-kubernetes.md",
+    "title": "08｜Kubernetes：服務一直要在線，誰負責把它維持住？",
+    "part": "第三篇 · 算力與系統管理"
+  },
+  {
+    "number": 9,
+    "file": "chapters/09-yunikorn.md",
+    "title": "09｜Apache YuniKorn：大家都要算力時，誰先用、怎麼分？",
+    "part": "第三篇 · 算力與系統管理"
+  },
+  {
+    "number": 10,
+    "file": "chapters/10-kuberay.md",
+    "title": "10｜KubeRay：Ray 會分工了，為什麼還需要另一個專案？",
+    "part": "第三篇 · 算力與系統管理"
+  },
+  {
+    "number": 11,
+    "file": "chapters/11-kafka.md",
+    "title": "11｜Kafka：剛發生的事，怎麼讓很多系統一起知道？",
+    "part": "第四篇 · 資料的流動與計算"
+  },
+  {
+    "number": 12,
+    "file": "chapters/12-ozone.md",
+    "title": "12｜Ozone：資料越堆越多，底下的倉庫誰來顧？",
+    "part": "第四篇 · 資料的流動與計算"
+  },
+  {
+    "number": 13,
+    "file": "chapters/13-datafusion.md",
+    "title": "13｜DataFusion：做資料產品，查詢引擎一定要自己重寫嗎？",
+    "part": "第四篇 · 資料的流動與計算"
+  },
+  {
+    "number": 14,
+    "file": "chapters/14-comet.md",
+    "title": "14｜Comet：能不能保留 Spark，用更少資源完成查詢？",
+    "part": "第四篇 · 資料的流動與計算"
+  },
+  {
+    "number": 15,
+    "file": "chapters/15-airflow.md",
+    "title": "15｜Airflow：每天都要跑的資料流程，誰來盯著？",
+    "part": "第五篇 · 可靠的工作流程"
+  },
+  {
+    "number": 16,
+    "file": "chapters/16-flyte.md",
+    "title": "16｜Flyte：AI 實驗變成長時間工作後，怎麼可靠地跑？",
+    "part": "第五篇 · 可靠的工作流程"
+  },
+  {
+    "number": 17,
+    "file": "chapters/17-why-these-tracks.md",
+    "title": "17｜現在能回答：為什麼選這 11 個嗎？",
+    "part": "第六篇 · 回到計畫意圖"
+  },
+  {
+    "number": 18,
+    "file": "chapters/18-maintainers-and-taiwan.md",
+    "title": "18｜多一些維護者，台灣究竟能多出什麼能力？",
+    "part": "第六篇 · 回到計畫意圖"
+  }
+]

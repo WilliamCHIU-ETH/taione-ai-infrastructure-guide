@@ -1,0 +1,774 @@
+[
+  {
+    "id": "cover",
+    "title": "從開源運作，走到技術影響力",
+    "kind": "layers",
+    "subtitle": "18 章，一次理解一個問題",
+    "items": [
+      {
+        "label": "共同創造",
+        "detail": "誰維護、誰審查、誰決定"
+      },
+      {
+        "label": "企業投入",
+        "detail": "解決自己的需求，也改善共同底層"
+      },
+      {
+        "label": "AI 基礎設施",
+        "detail": "資料、算力、工作流與模型服務"
+      },
+      {
+        "label": "台灣參與",
+        "detail": "從理解與貢獻，累積信任和責任"
+      }
+    ],
+    "takeaway": "看懂各個角色，才看得懂計畫意圖",
+    "alt": "全書連結開源協作、企業投入、AI 基礎設施與台灣的國際參與。"
+  },
+  {
+    "id": "06-a",
+    "title": "回答背後的服務工作",
+    "kind": "flow",
+    "subtitle": "長短不同的請求，共用有限 GPU",
+    "items": [
+      {
+        "label": "使用者請求",
+        "detail": "問題長短不同，陸續進入"
+      },
+      {
+        "label": "vLLM",
+        "detail": "排程請求、管理生成記憶體"
+      },
+      {
+        "label": "GPU 與模型",
+        "detail": "依排程執行推論"
+      },
+      {
+        "label": "回傳回答",
+        "detail": "完成後釋出資源給後續請求"
+      }
+    ],
+    "takeaway": "服務效率決定有限算力能承接多少工作",
+    "alt": "長短不同請求經 vLLM 排程和記憶體管理，交給 GPU 模型產生回答"
+  },
+  {
+    "id": "06-b",
+    "title": "誰需要共同的推論核心？",
+    "kind": "roles",
+    "subtitle": "不同需求在 vLLM 社群會合",
+    "items": [
+      {
+        "label": "模型提供者",
+        "detail": "讓新模型能被正確執行"
+      },
+      {
+        "label": "硬體公司",
+        "detail": "讓加速器有效運行模型"
+      },
+      {
+        "label": "服務公司",
+        "detail": "追求穩定與合理營運成本"
+      },
+      {
+        "label": "專案維護者",
+        "detail": "協調介面、品質與相容性"
+      }
+    ],
+    "takeaway": "企業有投入動機，治理仍依個人責任",
+    "alt": "模型、硬體與服務公司各有需求，由 vLLM 維護者協調品質與相容性"
+  },
+  {
+    "id": "07-a",
+    "title": "一批影片怎麼分工？",
+    "kind": "flow",
+    "subtitle": "Ray 協調可平行的應用任務",
+    "items": [
+      {
+        "label": "影片資料",
+        "detail": "大量檔案等待處理"
+      },
+      {
+        "label": "CPU 工作者",
+        "detail": "分批讀取與前處理"
+      },
+      {
+        "label": "GPU 工作者",
+        "detail": "平行執行模型分析"
+      },
+      {
+        "label": "結果彙整",
+        "detail": "依任務結果整理摘要"
+      }
+    ],
+    "takeaway": "工作切得合適，才有多機協作的效益",
+    "alt": "影片經多個 CPU 和 GPU 工作者處理，Ray 協調任務並彙整摘要"
+  },
+  {
+    "id": "07-b",
+    "title": "Ray 共用哪些基礎？",
+    "kind": "layers",
+    "subtitle": "不同 AI 工作，共用分散執行核心",
+    "items": [
+      {
+        "label": "AI 工作工具",
+        "detail": "資料處理、訓練、調參與服務"
+      },
+      {
+        "label": "Ray Core",
+        "detail": "分派任務、協調工作者與資料"
+      },
+      {
+        "label": "機器資源",
+        "detail": "單機或多機的 CPU 與 GPU"
+      }
+    ],
+    "takeaway": "上層重用協作機制，避免各自重造",
+    "alt": "Ray AI 工具位於 Ray Core 之上，核心使用 CPU 與 GPU 機器資源"
+  },
+  {
+    "id": "08-a",
+    "title": "少一份服務時怎麼辦？",
+    "kind": "timeline",
+    "subtitle": "Kubernetes 持續比較期望與現況",
+    "items": [
+      {
+        "label": "設定期望",
+        "detail": "教學情境：需要三個實例"
+      },
+      {
+        "label": "觀察現況",
+        "detail": "發現一個實例已故障"
+      },
+      {
+        "label": "建立替代",
+        "detail": "在可用資源上啟動實例"
+      },
+      {
+        "label": "持續檢查",
+        "detail": "就緒後提供服務，繼續觀察"
+      }
+    ],
+    "takeaway": "自動校正有前提，仍需資源與正確設定",
+    "alt": "Kubernetes 觀察服務少於期望數量後建立替代實例，並持續檢查狀態"
+  },
+  {
+    "id": "08-b",
+    "title": "多種服務的共同管理介面",
+    "kind": "layers",
+    "subtitle": "容器化後，平台可重用管理方式",
+    "items": [
+      {
+        "label": "各種應用",
+        "detail": "網站、資料服務、AI 模型服務"
+      },
+      {
+        "label": "Kubernetes",
+        "detail": "部署、資源、網路與擴充介面"
+      },
+      {
+        "label": "執行環境",
+        "detail": "雲端或自有機房的機器"
+      }
+    ],
+    "takeaway": "共用平台介面，應用邏輯仍各自負責",
+    "alt": "網站、資料與模型服務共用 Kubernetes 管理介面，運行於雲端或機房"
+  },
+  {
+    "id": "09-a",
+    "title": "有限資源如何分給多個團隊？",
+    "kind": "flow",
+    "subtitle": "YuniKorn 執行已設定的分享政策",
+    "items": [
+      {
+        "label": "各團隊需求",
+        "detail": "研究、資料更新、分析同時到來"
+      },
+      {
+        "label": "佇列與政策",
+        "detail": "定義配額、權重與優先順序"
+      },
+      {
+        "label": "YuniKorn",
+        "detail": "依政策決定分配與工作位置"
+      },
+      {
+        "label": "共用資源",
+        "detail": "CPU、記憶體與 GPU"
+      }
+    ],
+    "takeaway": "公平須先定義，再交給排程器執行",
+    "alt": "不同團隊的需求經佇列政策與 YuniKorn 排程，分配有限的共用資源"
+  },
+  {
+    "id": "09-b",
+    "title": "半套資源也可能造成等待",
+    "kind": "compare",
+    "subtitle": "需要一組工作者的情境",
+    "items": [
+      {
+        "label": "逐個啟動",
+        "detail": "多個作業可能各占一部分後等待"
+      },
+      {
+        "label": "成組規劃",
+        "detail": "確認所需資源組合，再啟動工作"
+      }
+    ],
+    "takeaway": "Gang scheduling 考慮整組工作需求",
+    "alt": "逐個啟動可能讓作業各自等待；成組排程先確認所需資源組合"
+  },
+  {
+    "id": "10-a",
+    "title": "讓 Ray 接上平台",
+    "kind": "layers",
+    "subtitle": "KubeRay 負責 Ray 叢集生命週期",
+    "items": [
+      {
+        "label": "Ray",
+        "detail": "執行應用的分散任務"
+      },
+      {
+        "label": "KubeRay",
+        "detail": "把叢集宣告轉成受管理的資源"
+      },
+      {
+        "label": "Kubernetes",
+        "detail": "管理承載工作的容器與機器"
+      }
+    ],
+    "takeaway": "任務分工與平台管理，需要可靠接合",
+    "alt": "Ray 執行分散任務，KubeRay 管理叢集，Kubernetes 管理容器資源"
+  },
+  {
+    "id": "10-b",
+    "title": "你要叢集、作業，還是服務？",
+    "kind": "roles",
+    "subtitle": "KubeRay 的三個常見資源類型",
+    "items": [
+      {
+        "label": "RayCluster",
+        "detail": "管理一組 Ray 叢集"
+      },
+      {
+        "label": "RayJob",
+        "detail": "提交一次性作業並管理生命週期"
+      },
+      {
+        "label": "RayService",
+        "detail": "管理持續運行的 Ray Serve 服務"
+      }
+    ],
+    "takeaway": "依工作目的，選擇對應的管理方式",
+    "alt": "RayCluster 管理叢集，RayJob 管理作業，RayService 管理持續服務"
+  },
+  {
+    "id": "11-a",
+    "title": "一筆事件，多個用途",
+    "kind": "branch",
+    "subtitle": "下單服務不必逐一等待下游",
+    "items": [
+      {
+        "label": "Kafka 事件流",
+        "detail": "保存購買事件供訂閱讀取"
+      },
+      {
+        "label": "庫存服務",
+        "detail": "接到事件後更新存量"
+      },
+      {
+        "label": "推薦服務",
+        "detail": "接到事件後更新偏好"
+      },
+      {
+        "label": "分析服務",
+        "detail": "接到事件後統計轉換"
+      }
+    ],
+    "takeaway": "資料流共用，業務邏輯各自負責",
+    "alt": "Kafka 保存購買事件，庫存、推薦和分析服務各自訂閱"
+  },
+  {
+    "id": "11-b",
+    "title": "讀取進度可以不同",
+    "kind": "roles",
+    "subtitle": "事件仍保留時，可以繼續重讀",
+    "items": [
+      {
+        "label": "事件紀錄",
+        "detail": "依設定保留一段歷史"
+      },
+      {
+        "label": "消費者甲",
+        "detail": "已處理到較新的事件"
+      },
+      {
+        "label": "消費者乙",
+        "detail": "故障恢復後從原處接續"
+      }
+    ],
+    "takeaway": "讀過不等於立刻刪除",
+    "alt": "事件紀錄由設定保留，消費者甲和乙有不同進度，乙可恢復後接續讀取"
+  },
+  {
+    "id": "12-a",
+    "title": "資料倉庫可以自己部署",
+    "kind": "layers",
+    "subtitle": "同一套 Ozone 提供多種入口",
+    "items": [
+      {
+        "label": "應用與分析",
+        "detail": "圖片、報告與模型資料"
+      },
+      {
+        "label": "存取介面",
+        "detail": "S3 相容或 Hadoop 介面"
+      },
+      {
+        "label": "Ozone 管理",
+        "detail": "管理名稱、位置和存取"
+      },
+      {
+        "label": "儲存節點",
+        "detail": "多台機器承載資料內容"
+      }
+    ],
+    "takeaway": "S3 相容，不代表必須放 AWS",
+    "alt": "應用經 S3 相容或 Hadoop 介面連到 Ozone，資料存於多台節點"
+  },
+  {
+    "id": "12-b",
+    "title": "不只存得下，還要用得到",
+    "kind": "roles",
+    "subtitle": "一台離線，資料如何保持可用？",
+    "items": [
+      {
+        "label": "找得到",
+        "detail": "大量物件的名稱與位置管理"
+      },
+      {
+        "label": "讀得到",
+        "detail": "節點故障後仍能復原服務"
+      },
+      {
+        "label": "管得住",
+        "detail": "身分、權限與安全存取"
+      }
+    ],
+    "takeaway": "上層 AI 依賴可靠的資料供應",
+    "alt": "Ozone 儲存節點中有一台離線，容錯能力依保護方式與設定而定"
+  },
+  {
+    "id": "13-a",
+    "title": "一個查詢，幾層工程",
+    "kind": "flow",
+    "subtitle": "查昨天溫度超標的設備",
+    "items": [
+      {
+        "label": "提出問題",
+        "detail": "產品接收使用者查詢"
+      },
+      {
+        "label": "理解與規劃",
+        "detail": "引擎決定如何讀取與篩選"
+      },
+      {
+        "label": "執行運算",
+        "detail": "DataFusion 計算資料"
+      },
+      {
+        "label": "呈現結果",
+        "detail": "產品轉成使用者可讀資訊"
+      }
+    ],
+    "takeaway": "查詢能力可由公共引擎提供",
+    "alt": "使用者提出查詢，由引擎理解規劃與計算，再由產品呈現結果"
+  },
+  {
+    "id": "13-b",
+    "title": "共同底座，不同產品",
+    "kind": "branch",
+    "subtitle": "嵌入式引擎的影響力",
+    "items": [
+      {
+        "label": "DataFusion",
+        "detail": "共用查詢規劃與執行能力"
+      },
+      {
+        "label": "InfluxDB",
+        "detail": "時間序列資料產品"
+      },
+      {
+        "label": "Comet",
+        "detail": "整合 Spark 的加速路徑"
+      },
+      {
+        "label": "其他資料產品",
+        "detail": "擴充各自需要的能力"
+      }
+    ],
+    "takeaway": "底層改進可經下游產品擴散",
+    "alt": "DataFusion 查詢底座被 InfluxDB、Comet 與其他資料產品採用"
+  },
+  {
+    "id": "14-a",
+    "title": "同一份查詢，兩種執行路徑",
+    "kind": "branch",
+    "subtitle": "保留既有 Spark 使用方式",
+    "items": [
+      {
+        "label": "Spark 查詢",
+        "detail": "先完成查詢規劃"
+      },
+      {
+        "label": "Comet 支援",
+        "detail": "交給加速引擎執行"
+      },
+      {
+        "label": "尚未支援",
+        "detail": "保留 Spark 執行"
+      }
+    ],
+    "takeaway": "加速範圍取決於查詢與版本",
+    "alt": "Spark 規劃查詢後，支援部分交給 Comet，其他部分保留 Spark 執行"
+  },
+  {
+    "id": "14-b",
+    "title": "快以外，還要守住什麼？",
+    "kind": "roles",
+    "subtitle": "一次改動要通過三種檢查",
+    "items": [
+      {
+        "label": "結果正確",
+        "detail": "空值、日期、小數是否一致"
+      },
+      {
+        "label": "版本相容",
+        "detail": "能否接回既有 Spark 系統"
+      },
+      {
+        "label": "效能改善",
+        "detail": "時間與記憶體是否合理"
+      }
+    ],
+    "takeaway": "維護者要一起評估三種取捨",
+    "alt": "Comet 維護者需要同時確認結果正確、版本相容和效能改善"
+  },
+  {
+    "id": "15-a",
+    "title": "每天跑完，需要有順序",
+    "kind": "flow",
+    "subtitle": "Airflow 管理依賴與執行狀態",
+    "items": [
+      {
+        "label": "取得資料",
+        "detail": "確認昨日紀錄已經準備好"
+      },
+      {
+        "label": "清理資料",
+        "detail": "移除無效內容並檢查格式"
+      },
+      {
+        "label": "執行評估",
+        "detail": "交由工作程式呼叫模型"
+      },
+      {
+        "label": "彙總報告",
+        "detail": "前置工作完成後再發布"
+      }
+    ],
+    "takeaway": "流程管理與實際計算分工",
+    "alt": "每日評估依序取得資料、清理、執行評估並彙總，Airflow 管理狀態"
+  },
+  {
+    "id": "15-b",
+    "title": "早上報表沒來，怎麼查？",
+    "kind": "timeline",
+    "subtitle": "可觀察的流程讓排查有依據",
+    "items": [
+      {
+        "label": "發現失敗",
+        "detail": "查看哪一個工作沒有完成"
+      },
+      {
+        "label": "讀取紀錄",
+        "detail": "核對資料與錯誤原因"
+      },
+      {
+        "label": "選擇處理",
+        "detail": "重試、補算或修正工作"
+      },
+      {
+        "label": "確認結果",
+        "detail": "檢查完成狀態與資料品質"
+      }
+    ],
+    "takeaway": "自動排程仍需要人設計正確性",
+    "alt": "團隊發現工作失敗後讀取紀錄，決定處理方式並核對最後結果"
+  },
+  {
+    "id": "16-a",
+    "title": "實驗中斷，成果如何保留？",
+    "kind": "flow",
+    "subtitle": "Flyte 記錄與協調工作狀態",
+    "items": [
+      {
+        "label": "準備資料",
+        "detail": "完成後留下可追蹤結果"
+      },
+      {
+        "label": "執行模型",
+        "detail": "各任務有資源與錯誤設定"
+      },
+      {
+        "label": "需要時處理失敗",
+        "detail": "按政策重試或恢復工作"
+      },
+      {
+        "label": "比較結果",
+        "detail": "核對版本後重用合適成果"
+      }
+    ],
+    "takeaway": "快取與恢復需由作者正確設定",
+    "alt": "Flyte 工作成功後比較結果；失敗時才依政策重試或恢復，結果重用取決於設定"
+  },
+  {
+    "id": "16-b",
+    "title": "版本改變了撰寫模型",
+    "kind": "compare",
+    "subtitle": "兩代都能處理複雜工作",
+    "items": [
+      {
+        "label": "Flyte 1",
+        "detail": "任務與工作流描述；已有動態功能"
+      },
+      {
+        "label": "Flyte 2",
+        "detail": "Python 任務互叫，直接寫分支迴圈"
+      }
+    ],
+    "takeaway": "先確認 Track 使用的版本與模組",
+    "alt": "Flyte 1 主要以任務與工作流描述撰寫且已有動態能力，Flyte 2 採 Python 任務互叫"
+  },
+  {
+    "id": "01-a",
+    "title": "看見答案背後的共同工作",
+    "kind": "layers",
+    "subtitle": "以商店 AI 客服為概念情境",
+    "items": [
+      {
+        "label": "服務體驗",
+        "detail": "顧客期待正確、及時的回答"
+      },
+      {
+        "label": "模型執行",
+        "detail": "讓請求能使用模型與算力"
+      },
+      {
+        "label": "資料與流程",
+        "detail": "更新資料，協調前後步驟"
+      },
+      {
+        "label": "運行資源",
+        "detail": "安排機器，處理擴展與故障"
+      }
+    ],
+    "takeaway": "這是責任分工，不是固定的請求路線",
+    "alt": "AI 服務體驗需要模型執行、資料與流程、運行資源共同支撐；各系統按需求選擇。"
+  },
+  {
+    "id": "02-a",
+    "title": "同一個專案，不同的責任",
+    "kind": "roles",
+    "subtitle": "常見分工；權限由各專案定義",
+    "items": [
+      {
+        "label": "使用者",
+        "detail": "使用成果並提出問題"
+      },
+      {
+        "label": "貢獻者",
+        "detail": "提供改動、測試、文件與討論"
+      },
+      {
+        "label": "維護角色",
+        "detail": "承擔審查、品質與持續協作"
+      },
+      {
+        "label": "基金會",
+        "detail": "可提供法律、商標及公共支援"
+      }
+    ],
+    "takeaway": "公開程式，不代表人人有相同決策權",
+    "alt": "使用者、貢獻者、維護角色及基金會承擔不同責任；基金會不是每個專案的共同主管。"
+  },
+  {
+    "id": "02-b",
+    "title": "提出修改之後，還要一起判斷",
+    "kind": "branch",
+    "subtitle": "提交、接受、發布是不同階段",
+    "items": [
+      {
+        "label": "修改提案",
+        "detail": "說明問題、做法與測試"
+      },
+      {
+        "label": "共同審查",
+        "detail": "檢查正確性、相容性與維護成本"
+      },
+      {
+        "label": "需要調整",
+        "detail": "補證據或改設計，再回到審查"
+      },
+      {
+        "label": "接受與發布",
+        "detail": "依專案權限合併及發布程序"
+      }
+    ],
+    "takeaway": "別人要能看懂，也能持續承擔改動",
+    "alt": "修改提案經共同審查，可能返回調整，獲得接受後再依專案程序合併及發布。"
+  },
+  {
+    "id": "03-a",
+    "title": "修共同底層，也在改善自己的服務",
+    "kind": "flow",
+    "subtitle": "電商報表出錯的假想情境",
+    "items": [
+      {
+        "label": "營運遇到問題",
+        "detail": "報表漏資料，公司承擔損失"
+      },
+      {
+        "label": "投入工程時間",
+        "detail": "重現錯誤、修正並補測試"
+      },
+      {
+        "label": "社群共同審查",
+        "detail": "確認能解決問題且不破壞他人"
+      },
+      {
+        "label": "共同底層改善",
+        "detail": "自己與其他使用者都可受益"
+      }
+    ],
+    "takeaway": "別人也受益，不會消除自己的回報",
+    "alt": "公司因報表問題投入修正，經上游社群審查後，共同底層改善，自己和其他使用者都受益。"
+  },
+  {
+    "id": "03-b",
+    "title": "程式可取得，營運仍需要人",
+    "kind": "compare",
+    "subtitle": "同一開源生態中的兩種選擇",
+    "items": [
+      {
+        "label": "自行營運",
+        "detail": "取得程式，自己部署與承擔維護"
+      },
+      {
+        "label": "購買服務",
+        "detail": "付費取得託管、整合與支援"
+      }
+    ],
+    "takeaway": "企業可以在共同基礎上提供付費價值",
+    "alt": "自行營運者取得開源程式並承擔部署維護，購買服務者則付費取得託管、整合與支援。"
+  },
+  {
+    "id": "04-a",
+    "title": "從會使用，到能共同決定",
+    "kind": "flow",
+    "subtitle": "TAIONE 已公開的目標連結",
+    "items": [
+      {
+        "label": "人才培育",
+        "detail": "建立理解架構與協作的能力"
+      },
+      {
+        "label": "實際貢獻",
+        "detail": "在國際上游累積可回查成果"
+      },
+      {
+        "label": "治理參與",
+        "detail": "逐步承擔共同技術的責任"
+      },
+      {
+        "label": "產業連結",
+        "detail": "促進合作與產品服務機會"
+      }
+    ],
+    "takeaway": "這是計畫意圖，不是保證完成的成果",
+    "alt": "TAIONE 希望人才培育帶來實際貢獻、治理參與及產業連結，各步驟均需持續投入。"
+  },
+  {
+    "id": "05-a",
+    "title": "十一個入口，四組工程問題",
+    "kind": "roles",
+    "subtitle": "按需求組合，不必全部部署",
+    "items": [
+      {
+        "label": "模型與分散運算",
+        "detail": "vLLM、Ray"
+      },
+      {
+        "label": "叢集與資源",
+        "detail": "K8s、YuniKorn、KubeRay"
+      },
+      {
+        "label": "資料流動與計算",
+        "detail": "Kafka、Ozone\nDataFusion、Comet"
+      },
+      {
+        "label": "工作流程",
+        "detail": "Airflow、Flyte"
+      }
+    ],
+    "takeaway": "功能分組，不是固定的部署順序",
+    "alt": "四組 Track：vLLM與Ray；Kubernetes、YuniKorn與KubeRay；Kafka、Ozone、DataFusion與Comet；Airflow與Flyte。"
+  },
+  {
+    "id": "17-a",
+    "title": "選題理由，可以知道到哪裡？",
+    "kind": "roles",
+    "subtitle": "整體意圖不等於逐項決策紀錄",
+    "items": [
+      {
+        "label": "官方目標",
+        "detail": "人才、上游貢獻、治理與產業"
+      },
+      {
+        "label": "技術線索",
+        "detail": "功能及上下游關係可逐項查證"
+      },
+      {
+        "label": "尚未查明",
+        "detail": "遴選權重、候選比較與取捨"
+      }
+    ],
+    "takeaway": "可分析技術組合，不能代寫官方理由",
+    "alt": "官方整體目標與各專案功能可以查證，但十一個 Track 的遴選權重、候選比較和取捨仍未知。"
+  },
+  {
+    "id": "18-a",
+    "title": "信任，從持續承擔責任累積",
+    "kind": "timeline",
+    "subtitle": "能力路徑，不是固定升等表",
+    "items": [
+      {
+        "label": "理解問題",
+        "detail": "提出可重現、可討論的案例"
+      },
+      {
+        "label": "完成貢獻",
+        "detail": "修正、測試、文件與回應審查"
+      },
+      {
+        "label": "照顧共同品質",
+        "detail": "協助他人，持續追蹤影響"
+      },
+      {
+        "label": "承擔更多責任",
+        "detail": "經社群認可參與審查與設計"
+      }
+    ],
+    "takeaway": "影響力來自可依賴的貢獻，不只頭銜",
+    "alt": "理解問題、完成貢獻、持續照顧共同品質可累積信任；是否取得更多權限由各社群決定。"
+  }
+]
