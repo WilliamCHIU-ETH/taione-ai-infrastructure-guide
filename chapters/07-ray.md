@@ -16,17 +16,17 @@
 
 Ray 提供 Tasks、Actors 與 Objects 等抽象：可分派的函式工作、保留狀態的工作者，以及在工作間傳遞的資料。開發者仍須設計任務邊界，Ray 幫忙處理分散執行的機制。[Ray 核心概念](https://docs.ray.io/en/latest/ray-core/key-concepts.html)
 
-![影片處理工作拆成資料讀取、GPU 模型分析與結果彙整，Ray 將可平行任務交給多個工作者](../assets/figures/07-a.png)
+<p align="center"><img src="../assets/figures/07-a.png" width="560" alt="影片處理工作拆成資料讀取、GPU 模型分析與結果彙整，Ray 將可平行任務交給多個工作者"></p>
 
-*先辨認可以分工的部分，才可能有效利用多台機器。* [SVG 原圖](../assets/figures/07-a.svg)
+*圖 07-1｜一批影片怎麼分工？先辨認可以分工的部分，才可能有效利用多台機器。* [SVG 原圖](../assets/figures/07-a.svg)
 
 ## 為什麼不只是「多開幾個程式」？
 
 單機平行只需要管理同一台電腦；跨機器還會遇到網路、資料搬移、機器故障與資源不足。Ray 把共同機制放進執行核心，再提供 Data、Train、Tune、Serve 等工具，分別支援資料處理、分散式訓練、實驗調參與模型服務。[官方專案概覽](https://github.com/ray-project/ray)
 
-![Ray Core 提供任務與資料協作，其上有資料、訓練與服務工具，其下使用多台 CPU 或 GPU 機器](../assets/figures/07-b.png)
+<p align="center"><img src="../assets/figures/07-b.png" width="560" alt="Ray Core 提供任務與資料協作，其上有資料、訓練與服務工具，其下使用多台 CPU 或 GPU 機器"></p>
 
-*共用執行基礎之上，可以長出不同 AI 工作方式；不是每個專案都要用完所有工具。* [SVG 原圖](../assets/figures/07-b.svg)
+*圖 07-2｜Ray 共用哪些基礎？共用執行基礎之上，可以長出不同 AI 工作方式；不是每個專案都要用完所有工具。* [SVG 原圖](../assets/figures/07-b.svg)
 
 它的重要性在於讓團隊重用一套分散運算基礎，降低每次擴大工作量都重寫控制系統的負擔。但資料搬移與協調也有成本，工作很小或無法拆分時，多機不一定更快。
 

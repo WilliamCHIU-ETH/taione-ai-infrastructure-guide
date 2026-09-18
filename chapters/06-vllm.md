@@ -16,9 +16,9 @@
 
 vLLM 的位置在模型與應用服務之間。它起源於 UC Berkeley 的研究工作，提供模型推論與服務能力；它並不負責把客服的業務知識教給模型。[官方介紹](https://docs.vllm.ai/en/latest/)
 
-![長短不同的使用者請求經 vLLM 排程與記憶體管理後，交給 GPU 上的模型產生回答](../assets/figures/06-a.png)
+<p align="center"><img src="../assets/figures/06-a.png" width="560" alt="長短不同的使用者請求經 vLLM 排程與記憶體管理後，交給 GPU 上的模型產生回答"></p>
 
-*同一個模型，服務方式會改變能承接的工作量。這是概念示意，沒有表示固定加速倍數。* [SVG 原圖](../assets/figures/06-a.svg)
+*圖 06-1｜回答背後的服務工作。同一個模型，服務方式會改變能承接的工作量；這是概念示意，沒有表示固定加速倍數。* [SVG 原圖](../assets/figures/06-a.svg)
 
 ## 關鍵是把昂貴資源用好
 
@@ -30,9 +30,9 @@ vLLM 的位置在模型與應用服務之間。它起源於 UC Berkeley 的研�
 
 Red Hat 說明它參與 vLLM 貢獻，並把它整合進有企業支援的推論產品。公司可以靠整合、驗證與服務收費，同時改善自己依賴的共同核心。[Red Hat 的產品與投入說明](https://www.redhat.com/en/blog/accelerate-ai-inference-vllm)
 
-![模型提供者需要模型支援，硬體公司需要硬體適配，服務公司需要穩定效率，三方透過 vLLM 維護者協作](../assets/figures/06-b.png)
+<p align="center"><img src="../assets/figures/06-b.png" width="560" alt="模型提供者需要模型支援，硬體公司需要硬體適配，服務公司需要穩定效率，三方透過 vLLM 維護者協作"></p>
 
-*各方帶來需求與工程投入；有商業利益不等於擁有專案決策權。* [SVG 原圖](../assets/figures/06-b.svg)
+*圖 06-2｜誰需要共同的推論核心？各方帶來需求與工程投入；有商業利益不等於擁有專案決策權。* [SVG 原圖](../assets/figures/06-b.svg)
 
 vLLM 的治理文件明確區分個人與公司：Committer 身分屬於個人；維護者負責審查、相容性與技術方向，不能靠公司付費取得資格。[治理規則](https://docs.vllm.ai/en/latest/governance/process/)
 

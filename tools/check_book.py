@@ -24,6 +24,10 @@ for f in [ROOT/'README.md',ROOT/'SOURCES.md']+chapters:
             check(urllib.parse.unquote(anchor) in slugs,f'{f.name}: missing anchor {href}')
     for alt,path in re.findall(r'!\[([^\]]*)\]\(([^)]+)\)',text):
         check(len(alt)>12,f'{f.name}: weak image alt')
+    for tag in re.findall(r'<img\b[^>]*>',text):
+        src=re.search(r'\bsrc="([^"]+)"',tag); alt=re.search(r'\balt="([^"]*)"',tag)
+        check(src is not None and (f.parent/urllib.parse.unquote(src.group(1))).resolve().exists(),f'{f.name}: missing image {tag[:80]}')
+        check(alt is not None and len(alt.group(1))>12,f'{f.name}: weak image alt {tag[:80]}')
     if f in chapters:
         i=chapters.index(f)
         check(text.count('回總目錄')==2,f'{f.name}: top/bottom navigation')

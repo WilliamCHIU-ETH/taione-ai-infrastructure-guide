@@ -14,9 +14,9 @@
 
 假設你要做設備監控產品，讓客戶查「昨天超過溫度門檻的機台」。介面只需要一個搜尋框，底下卻得理解條件、讀取資料、決定先篩選還是先關聯，再有效率地算出結果。每家公司從頭寫這些通用能力，會重複投入許多成本。DataFusion 以 Rust 實作，使用 Arrow 記憶體格式，讓產品團隊選擇或擴充需要的部分。[官方介紹](https://datafusion.apache.org/user-guide/introduction.html)
 
-![資料產品把查詢交給 DataFusion，經過理解、規劃與執行後取得結果](../assets/figures/13-a.png)
+<p align="center"><img src="../assets/figures/13-a.png" width="560" alt="資料產品把查詢交給 DataFusion，經過理解、規劃與執行後取得結果"></p>
 
-*產品功能與通用查詢能力可以分工；DataFusion 不包辦整個資料庫產品。 [SVG 原圖](../assets/figures/13-a.svg)*
+*圖 13-1｜一個查詢，幾層工程。產品功能與通用查詢能力可以分工；DataFusion 不包辦整個資料庫產品。* [SVG 原圖](../assets/figures/13-a.svg)
 
 ## 「被別人嵌入」也是一種全球影響力
 
@@ -24,9 +24,9 @@
 
 InfluxData 的產品文件確認 InfluxDB 3 的 SQL 查詢以 DataFusion 為基礎，並加上時間序列功能。這是「商業資料庫採用公共引擎」的具體例子，不能直接推論所有 DataFusion 開發都由 InfluxData 支付。[InfluxDB 3 查詢文件](https://docs.influxdata.com/influxdb3/enterprise/get-started/query/)
 
-![不同資料產品可以建立在共同的 DataFusion 查詢底座上，各自保留產品能力](../assets/figures/13-b.png)
+<p align="center"><img src="../assets/figures/13-b.png" width="560" alt="不同資料產品可以建立在共同的 DataFusion 查詢底座上，各自保留產品能力"></p>
 
-*共用底層降低重複建設，也讓底層變更可能同時影響多個下游。 [SVG 原圖](../assets/figures/13-b.svg)*
+*圖 13-2｜共同底座，不同產品。共用底層降低重複建設，也讓底層變更可能同時影響多個下游。* [SVG 原圖](../assets/figures/13-b.svg)
 
 ## 企業出人，專案如何決定？
 

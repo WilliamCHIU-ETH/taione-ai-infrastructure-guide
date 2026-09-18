@@ -9,6 +9,10 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'assets'/'figures'
 PAPER='#fbfbfa'; INK='#37352f'; MUTED='#6b6b68'; RULE='#e1e1dd'; BLUE='#1f70c1'; TINT='#edf4fa'
 FONT="'Noto Sans TC','PingFang TC','Heiti TC',sans-serif"
+# `frame: none` (default) crops the SVG to the drawn content plus PAD on each side, so the
+# figure title, subtitle and takeaway live in <title>/<desc> and the chapter caption instead.
+# `frame: full` keeps the original in-figure header (brand line, title, subtitle) and footer.
+PAD=32
 E=lambda s:html.escape(str(s),quote=True)
 
 def lines(s, budget=19):
@@ -27,11 +31,17 @@ def box_h(it,w):
 class Canvas:
     def __init__(self,spec,h):
         self.s=spec; self.h=h; self.a=[]
-        self.rect(0,0,720,h,PAPER,stroke='none',r=0)
+        self.frame=spec.get('frame','none')=='full'
+        self.ymin=float('inf'); self.ymax=0.0   # vertical extent of drawn boxes, circles and text
+        if self.frame:self.rect(0,0,720,h,PAPER,stroke='none',r=0)
+    def _span(self,y0,y1):
+        self.ymin=min(self.ymin,y0); self.ymax=max(self.ymax,y1)
     def rect(self,x,y,w,h,fill='white',stroke=RULE,r=8):
+        self._span(y,y+h)
         self.a.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}" fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
     def text(self,x,y,s,size=28,color=INK,weight=400,anchor='start',budget=22):
         for i,l in enumerate(lines(str(s),budget)):
+            self._span(y+i*(size+12)-size*0.85,y+i*(size+12)+size*0.25)
             self.a.append(f'<text x="{x}" y="{y+i*(size+12)}" font-size="{size}" fill="{color}" font-weight="{weight}" text-anchor="{anchor}">{E(l)}</text>')
     def path(self,d,color=MUTED,arrow=True,dash=False):
         self.a.append(f'<path d="{d}" fill="none" stroke="{color}" stroke-width="3"'+(' stroke-dasharray="8 8"' if dash else '')+(f' marker-end="url(#{self.s["id"]}-arrow)"' if arrow else '')+'/>')
@@ -40,6 +50,7 @@ class Canvas:
         mid=(y+Y)/2; sign=1 if X>x else -1
         self.path(f'M {x} {y} V {mid-8} Q {x} {mid} {x+sign*8} {mid} H {X-sign*8} Q {X} {mid} {X} {mid+8} V {Y}')
     def circle(self,x,y,r,fill=TINT,stroke=BLUE):
+        self._span(y-r,y+r)
         self.a.append(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{fill}" stroke="{stroke}" stroke-width="2"/>')
     def label(self,x,y,w,label,detail='',focus=False,num=None):
         lablines=lines(label,(w-44)/28)
@@ -50,17 +61,25 @@ class Canvas:
         if detail:self.text(x+24,y+44+len(lablines)*40,detail,24,MUTED,budget=(w-44)/24)
         return h
     def header(self):
+        if not self.frame:return
         self.text(32,44,'TAIONE / 開源基礎設施圖解',20,MUTED)
         self.text(32,96,self.s['title'],32,weight=600,budget=20)
         self.text(32,148,self.s.get('subtitle','概念示意'),24,MUTED,budget=27)
     def footer(self):
+        if not self.frame:return
         self.path(f'M 32 {self.h-132} H 688',RULE,False)
         self.text(32,self.h-92,self.s['takeaway'],24,BLUE,500,budget=27)
         self.text(32,self.h-20,'概念示意 · 詳細條件與來源見章節正文',20,MUTED)
     def write(self):
         id=self.s['id']; self.header(); self.footer()
         defs=f'<defs><marker id="{id}-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="{MUTED}"/></marker></defs>'
-        out=f'<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 {self.h}" role="img" aria-labelledby="{id}-title {id}-desc"><title id="{id}-title">{E(self.s["title"])}</title><desc id="{id}-desc">{E(self.s["alt"])}</desc>{defs}<g font-family="{E(FONT)}">'+''.join(self.a)+'</g></svg>\n'
+        if self.frame:
+            vh=self.h; bg=''; group=f'<g font-family="{E(FONT)}">'
+        else:
+            top=math.floor(self.ymin-PAD); vh=math.ceil(self.ymax+PAD)-top
+            bg=f'<rect x="0" y="0" width="720" height="{vh}" rx="0" fill="{PAPER}" stroke="none" stroke-width="2"/>'
+            group=f'<g font-family="{E(FONT)}" transform="translate(0 {-top})">'
+        out=f'<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 {vh}" role="img" aria-labelledby="{id}-title {id}-desc"><title id="{id}-title">{E(self.s["title"])}</title><desc id="{id}-desc">{E(self.s["alt"])}</desc>{defs}{bg}{group}'+''.join(self.a)+'</g></svg>\n'
         (OUT/f'{id}.svg').write_text(out)
         return id
 

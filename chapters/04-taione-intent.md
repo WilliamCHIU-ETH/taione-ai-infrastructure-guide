@@ -18,9 +18,9 @@ TAIONE 的基金會簡介則給出直接證據：它希望培養能貢獻國際�
 
 TAIONE 在這裡提供培育與連結；它與 Apache 是不同的基金會，也不因開設 Track 就取得上游專案的管理權。以 Apache 為例，專案仍由自己的 PMC 依規則治理。[Apache 的治理邊界](https://community.apache.org/projectIndependence.html)
 
-![TAIONE 的官方目標由人才培育，延伸到實際貢獻、治理參與及產業連結；箭頭表示意圖中的連結，不代表保證達成。](../assets/figures/04-a.png)
+<p align="center"><img src="../assets/figures/04-a.png" width="560" alt="TAIONE 的官方目標由人才培育，延伸到實際貢獻、治理參與及產業連結；箭頭表示意圖中的連結，不代表保證達成。"></p>
 
-圖中是官方目標的整理；每一步仍需要可查證的投入與成果。[SVG 原圖](../assets/figures/04-a.svg)
+*圖 04-1｜從會使用，到能共同決定。圖中是官方目標的整理；每一步仍需要可查證的投入與成果。* [SVG 原圖](../assets/figures/04-a.svg)
 
 ## 為什麼安排維護者帶領？
 

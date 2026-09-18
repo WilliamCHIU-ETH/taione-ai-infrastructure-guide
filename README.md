@@ -7,9 +7,9 @@
 | [**開始閱讀 →**](chapters/01-ai-service.md) | [**直接看 11 個 Track**](#track-目錄) | [**查看來源**](SOURCES.md) |
 | :---: | :---: | :---: |
 
-![本書從開源協作與企業投入出發，理解 AI 基礎設施，再回到台灣人才與國際參與的意義。](assets/figures/cover.png)
+<p align="center"><img src="assets/figures/cover.png" width="560" alt="本書從開源協作與企業投入出發，理解 AI 基礎設施，再回到台灣人才與國際參與的意義。"></p>
 
-[開啟 SVG 原圖](assets/figures/cover.svg)
+*從開源運作，走到技術影響力。看懂各個角色，才看得懂計畫意圖。* [開啟 SVG 原圖](assets/figures/cover.svg)
 
 這是一本**獨立撰寫的公開導讀**，不是 TAIONE 或各上游專案的官方文件。計畫及 Track 名單以 [TAIONE 官方網站](https://taione.org/fellowship/tracks)為準。資料查核日：**2026-09-18**。
 

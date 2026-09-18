@@ -14,17 +14,17 @@
 
 想像一個每天更新的 AI 評估報告：先取得昨日紀錄，再清理資料，接著呼叫模型，最後彙總結果。資料還沒到就先算，結果可能不完整；第三步失敗，整支重跑又可能重複寫入。Airflow 用 Python 定義工作流程，記錄步驟狀態，讓人知道卡在哪裡，也能依條件重跑失敗工作。[官方介紹](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
 
-![每日評估依取得資料、清理、執行評估與彙總的順序進行，Airflow 管理各步驟狀態](../assets/figures/15-a.png)
+<p align="center"><img src="../assets/figures/15-a.png" width="560" alt="每日評估依取得資料、清理、執行評估與彙總的順序進行，Airflow 管理各步驟狀態"></p>
 
-*箭頭表示前後依賴；模型呼叫與資料計算仍由工作程式或外部系統完成。 [SVG 原圖](../assets/figures/15-a.svg)*
+*圖 15-1｜每天跑完，需要有順序。箭頭表示前後依賴；模型呼叫與資料計算仍由工作程式或外部系統完成。* [SVG 原圖](../assets/figures/15-a.svg)
 
 ## 排程工具為什麼會成為基礎設施？
 
 當公司有很多流程，問題會從「今天有沒有跑」變成「哪批資料還沒完成、改版後怎麼補算、出錯由誰接手」。Airflow 將這些工作放進共同的管理方式，並透過整合元件連接不同服務。它可以管理明確起訖的批次工作，也能由事件觸發；持續不斷的事件傳輸則是 [Kafka](11-kafka.md) 那一類問題。[工作流程與適用情境](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
 
-![工作流程出錯時，團隊先看狀態和紀錄，再決定重試、補算或修正程式](../assets/figures/15-b.png)
+<p align="center"><img src="../assets/figures/15-b.png" width="560" alt="工作流程出錯時，團隊先看狀態和紀錄，再決定重試、補算或修正程式"></p>
 
-*自動排程減少盯人，但資料是否正確、重跑是否重複扣款，仍需工作作者設計。 [SVG 原圖](../assets/figures/15-b.svg)*
+*圖 15-2｜早上報表沒來，怎麼查？自動排程減少盯人，但資料是否正確、重跑是否重複扣款，仍需工作作者設計。* [SVG 原圖](../assets/figures/15-b.svg)
 
 ## Airbnb 的需求，如何變成公共專案？
 

@@ -14,9 +14,9 @@
 
 想像一家公司每天整理交易、點擊與模型訓練資料。分析師早已寫好 Spark SQL，工程團隊也建立了排程與監控。即使另一個引擎更快，全面重寫仍可能很貴。Comet 切入的就是這個問題：讓既有查詢沿用 Spark 的介面與規劃能力，再替可支援的運算換上不同的執行方式。[專案介紹](https://datafusion.apache.org/comet/contributor-guide/plugin_overview.html)
 
-![Spark 查詢經規劃後，支援的部分交給 Comet，不支援的部分保留 Spark 執行](../assets/figures/14-a.png)
+<p align="center"><img src="../assets/figures/14-a.png" width="560" alt="Spark 查詢經規劃後，支援的部分交給 Comet，不支援的部分保留 Spark 執行"></p>
 
-*同一份查詢可以包含不同執行路徑；這是概念圖，並非每個工作都能全部加速。 [SVG 原圖](../assets/figures/14-a.svg)*
+*圖 14-1｜同一份查詢，兩種執行路徑。同一份查詢可以包含不同執行路徑；這是概念圖，並非每個工作都能全部加速。* [SVG 原圖](../assets/figures/14-a.svg)
 
 ## 加速的關鍵，是把資料怎麼算做得更好
 
@@ -28,9 +28,9 @@ Comet 借助上一章的 [DataFusion](13-datafusion.md)，用 Rust 原生程式�
 
 Apache 在 2024 年的捐贈公告確認：Comet 最初由 Apple 開發，參與工程師也貢獻 Arrow 與 DataFusion；公告將擴大社群與加速開發列為引入 ASF 的目的。這支持「企業把內部需求做成共同基礎」的例子，不能推論 Apple 擁有全部治理權，或其他企業已全面採用。[官方捐贈公告](https://arrow.apache.org/blog/2024/03/06/comet-donation/)
 
-![Comet 的維護需要同時核對查詢結果、相容性與效能，才能決定是否接受改動](../assets/figures/14-b.png)
+<p align="center"><img src="../assets/figures/14-b.png" width="560" alt="Comet 的維護需要同時核對查詢結果、相容性與效能，才能決定是否接受改動"></p>
 
-*更快只是其中一項；算對、能接回原有系統，同樣需要持續維護。 [SVG 原圖](../assets/figures/14-b.svg)*
+*圖 14-2｜快以外，還要守住什麼？更快只是其中一項；算對、能接回原有系統，同樣需要持續維護。* [SVG 原圖](../assets/figures/14-b.svg)
 
 ## 這個 Track 為何值得培養人？
 

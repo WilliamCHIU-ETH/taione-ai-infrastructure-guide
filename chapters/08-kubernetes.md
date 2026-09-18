@@ -14,9 +14,9 @@
 
 想像 AI 客服有三份相同的服務同時接客。半夜一台機器故障，如果全靠工程師登入重啟，規模愈大就愈難照顧。Kubernetes 讓團隊宣告需要幾份服務、多少資源，再由控制機制觀察現況、建立或替換執行中的單位。[官方概覽](https://kubernetes.io/docs/concepts/overview/)
 
-![團隊指定需要三個服務實例，系統觀察到少一個，建立替代實例並持續檢查期望與現況](../assets/figures/08-a.png)
+<p align="center"><img src="../assets/figures/08-a.png" width="560" alt="團隊指定需要三個服務實例，系統觀察到少一個，建立替代實例並持續檢查期望與現況"></p>
 
-*「三份」只是教學情境；恢復需要足夠資源、正確設定與可用的底層系統。* [SVG 原圖](../assets/figures/08-a.svg)
+*圖 08-1｜少一份服務時怎麼辦？「三份」只是教學情境；恢復需要足夠資源、正確設定與可用的底層系統。* [SVG 原圖](../assets/figures/08-a.svg)
 
 這種持續校正也用於更新版本：例如逐步換掉舊版服務，觀察新版是否就緒。Deployment 就是其中一種管理方式。它不會修好程式邏輯錯誤，也不保證故障時每個請求都成功。[Deployment 文件](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
@@ -24,9 +24,9 @@
 
 網站、資料服務與 AI 模型都可能被包裝成容器。容器可以粗略理解為把程式與執行依賴一起打包。當不同服務共用部署與管理方式，平台團隊就能建立共通的資源、網路與維運介面；其他專案也能沿著介面擴充。
 
-![網站、資料服務與模型服務共用 Kubernetes 管理介面，再連接雲端或自有機房的機器](../assets/figures/08-b.png)
+<p align="center"><img src="../assets/figures/08-b.png" width="560" alt="網站、資料服務與模型服務共用 Kubernetes 管理介面，再連接雲端或自有機房的機器"></p>
 
-*共同管理介面讓多種產品接合；各服務的資料與應用邏輯仍由自己的系統負責。* [SVG 原圖](../assets/figures/08-b.svg)
+*圖 08-2｜多種服務的共同管理介面。共同管理介面讓多種產品接合；各服務的資料與應用邏輯仍由自己的系統負責。* [SVG 原圖](../assets/figures/08-b.svg)
 
 這使 Kubernetes 成為平台生態的連接位置。可攜性表示有共同基礎，仍不代表不同雲端的儲存、網路與權限設定完全相同。
 

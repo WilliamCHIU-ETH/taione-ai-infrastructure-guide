@@ -18,9 +18,9 @@ vLLM 與 Ray 位於第一組，分別讓讀者認識模型推論服務，以及�
 
 Apache Kafka、Apache Ozone、Apache DataFusion 與 Apache DataFusion Comet 位於第三組，關心資料的流動、保存、查詢與加速。Apache Airflow 與 Flyte 則帶出第四組：當工作有許多步驟、需要重跑或由多人合作時，如何管理整體執行。
 
-![四組問題對應十一個 Track：模型與分散運算、叢集與資源管理、資料流動儲存計算，以及跨步驟的工作流程。分組表示主要切入點，沒有固定部署順序。](../assets/figures/05-a.png)
+<p align="center"><img src="../assets/figures/05-a.png" width="560" alt="四組問題對應十一個 Track：模型與分散運算、叢集與資源管理、資料流動儲存計算，以及跨步驟的工作流程。分組表示主要切入點，沒有固定部署順序。"></p>
 
-同一專案可能跨越多個用途；位置是閱讀入口，不是互斥的產品分類。[SVG 原圖](../assets/figures/05-a.svg)
+*圖 05-1｜十一個入口，四組工程問題。同一專案可能跨越多個用途；位置是閱讀入口，不是互斥的產品分類。* [SVG 原圖](../assets/figures/05-a.svg)
 
 ## 有些是夥伴，有些解決相近問題
 

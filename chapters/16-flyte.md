@@ -14,17 +14,17 @@
 
 想像你要處理很多文件、跑不同模型，再比較答案。這次只改了評估方法，前面的昂貴步驟要不要重算？某個模型執行失敗，怎麼知道做到哪裡？Flyte 處理的是這些執行問題：依設定管理快取、重試與錯誤，並呈現各步驟狀態。快取必須反映資料、程式與設定，不能把舊結果誤當新實驗。[Flyte 2 功能說明](https://flyte.org/platform/flyte-2-is-here)
 
-![AI 工作中，資料準備與模型評估各有狀態，失敗後依政策處理並保留可重用成果](../assets/figures/16-a.png)
+<p align="center"><img src="../assets/figures/16-a.png" width="560" alt="AI 工作中，資料準備與模型評估各有狀態，失敗後依政策處理並保留可重用成果"></p>
 
-*這是工作管理的概念示例；能否重用結果與如何恢復，取決於作者設定。 [SVG 原圖](../assets/figures/16-a.svg)*
+*圖 16-1｜實驗中斷，成果如何保留？這是工作管理的概念示例；能否重用結果與如何恢復，取決於作者設定。* [SVG 原圖](../assets/figures/16-a.svg)
 
 ## 先分清 Flyte 1 與 Flyte 2
 
 Flyte 1 常見的寫法是將任務與工作流程編譯成系統可執行的描述，並已有 dynamic workflows 等能力。Flyte 2 強調由任務直接呼叫任務，用一般 Python 的條件、迴圈與非同步控制流程，讓執行中的判斷更自然地進入工作流。不能把舊版簡化為「完全不會動態」，也不能把新版畫成只會依固定圖跑到底。[Flyte 1 進階組合](https://docs-flyte-legacy.union.ai/en/v1.13.3/user_guide/advanced_composition/index.html)、[官方版本比較](https://flyte.org/flyte1-vs-flyte2)
 
-![Flyte 1 的任務與工作流描述，以及 Flyte 2 的 Python 任務互相呼叫，是兩種不同的主要撰寫模型](../assets/figures/16-b.png)
+<p align="center"><img src="../assets/figures/16-b.png" width="560" alt="Flyte 1 的任務與工作流描述，以及 Flyte 2 的 Python 任務互相呼叫，是兩種不同的主要撰寫模型"></p>
 
-*比較的是主要撰寫模型，不是宣稱舊版沒有分支或動態功能。 [SVG 原圖](../assets/figures/16-b.svg)*
+*圖 16-2｜版本改變了撰寫模型。比較的是主要撰寫模型，不是宣稱舊版沒有分支或動態功能。* [SVG 原圖](../assets/figures/16-b.svg)
 
 ## 從 Lyft 到基金會，再到商業服務
 

@@ -16,17 +16,17 @@
 
 KubeRay 的 Operator 就負責這種接合。Operator 可以理解為懂得某種應用的自動管理程式；KubeRay 觀察宣告的 Ray 資源，再協調需要的 Pod 等物件。[Ray on Kubernetes 官方說明](https://docs.ray.io/en/latest/cluster/kubernetes/index.html)
 
-![Ray 描述應用分散工作，KubeRay 管理 Ray 叢集資源，Kubernetes 管理承載它們的容器與機器](../assets/figures/10-a.png)
+<p align="center"><img src="../assets/figures/10-a.png" width="560" alt="Ray 描述應用分散工作，KubeRay 管理 Ray 叢集資源，Kubernetes 管理承載它們的容器與機器"></p>
 
-*三者各有責任；接合之後也沒有消除應用設計與維運責任。* [SVG 原圖](../assets/figures/10-a.svg)
+*圖 10-1｜讓 Ray 接上平台。三者各有責任；接合之後也沒有消除應用設計與維運責任。* [SVG 原圖](../assets/figures/10-a.svg)
 
 ## 為什麼需要不同的資源類型？
 
 有時你只要一個可反覆使用的叢集；有時是跑完就收工的一次性作業；有時則是持續接收請求的模型服務。KubeRay 的常見介面分別用 RayCluster、RayJob 與 RayService 表達這些需求。它們讓平台可以管理工作生命週期，不必每個團隊各寫一套啟停腳本。[專案介紹](https://github.com/ray-project/kuberay)
 
-![RayCluster 表達叢集，RayJob 表達一次性作業，RayService 表達持續服務，對應不同管理需求](../assets/figures/10-b.png)
+<p align="center"><img src="../assets/figures/10-b.png" width="560" alt="RayCluster 表達叢集，RayJob 表達一次性作業，RayService 表達持續服務，對應不同管理需求"></p>
 
-*依目的選擇資源類型；具體重試、清理與復原行為仍要按版本與設定確認。* [SVG 原圖](../assets/figures/10-b.svg)
+*圖 10-2｜你要叢集、作業，還是服務？依目的選擇資源類型；具體重試、清理與復原行為仍要按版本與設定確認。* [SVG 原圖](../assets/figures/10-b.svg)
 
 ## 為什麼連接層也值得公司養人？
 
